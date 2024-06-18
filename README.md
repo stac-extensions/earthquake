@@ -100,7 +100,6 @@ The following table gives the mapping between the fields in the [USGS Earthquake
 | [felt](https://earthquake.usgs.gov/data/comcat/index.php#felt)       | `eq:felt`            | The number of felt reports.                                                                                                              |
 | [status](https://earthquake.usgs.gov/data/comcat/index.php#status)   | `eq:status`          | Indicates whether the event has been reviewed by a human.                                                                                |
 | [tsunami](https://earthquake.usgs.gov/data/comcat/index.php#tsunami) | `eq:tsunami`         | This flag is set to `true` for large events in oceanic regions and `false` otherwise.                                                    |
-| [sig](https://earthquake.usgs.gov/data/comcat/index.php#sig)         | `eq:significance`    | A number describing how significant the event is. Larger numbers indicate a more significant event.                                      |
 | [net](https://earthquake.usgs.gov/data/comcat/index.php#net)         | `eq:sources[0].name` | The network code of the preferred source of information for the event.                                                                   |
 | [code](https://earthquake.usgs.gov/data/comcat/index.php#code)       | `eq:sources[0].code` | The event code of the preferred source of information for the event.                                                                     |
 | [sources](https://earthquake.usgs.gov/data/comcat/index.php#sources) | `eq:sources[*].name` | The network code of the other sources of information for the event.                                                                      |
@@ -124,9 +123,9 @@ The following types should be used as applicable `rel` types in the
 
 ### Additional fields
 
-| Field Name | Type   | Description                                                                                                        |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------ |
-| source     | string | The identifier of the source of information for the event. See [`eq:sources.id`](#eqsources) for more information. |
+| Field Name | Type   | Description                                                                                                    |
+| ---------- | ------ | -------------------------------------------------------------------------------------------------------------- |
+| source     | string | The name of the source of information for the event. See [`eq:sources.name`](#eqsources) for more information. |
 
 ## Contributing
 
