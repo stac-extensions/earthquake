@@ -33,7 +33,7 @@ The fields in the table below can be used in these parts of STAC documents:
 | Field Name        | Type                          | Description                                                                                                                    |
 | ----------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | eq:magnitude      | \[number]                     | **REQUIRED**. The magnitude for the event. See also magnitude_type.                                                            |
-| eq:magnitude_type | string                        | The type of magnitude. Default to `mw`.                                                                                        |
+| eq:magnitude_type | string                        | The type of magnitude. Default to `mww`.                                                                                       |
 | eq:places         | \[string]                     | The list of places referencing locations in relation with the event                                                            |
 | eq:felt           | number                        | The number of felt reports.                                                                                                    |
 | eq:status         | string                        | Indicates whether the event has been reviewed by a human. Possible value: `automatic`, `reviewed`, `deleted`                   |
@@ -45,7 +45,7 @@ The fields in the table below can be used in these parts of STAC documents:
 
 #### eq:magnitude_type
 
-The `eq:magnitude_type` field is a string that describes the type of magnitude. The default value is `mw` (moment magnitude).
+The `eq:magnitude_type` field is a string that describes the type of magnitude. The default value is `mww` (moment magnitude).
 The complete list of possible values is available [here](https://www.usgs.gov/programs/earthquake-hazards/magnitude-types).
 
 #### eq:places
