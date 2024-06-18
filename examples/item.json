@@ -14,7 +14,7 @@
     ]
   },
   "properties": {
-    "datetime": "2023-02-06T01:17:34 Z",
+    "datetime": "2023-02-06T01:17:34Z",
     "title": "M 7.8 - Pazarcik earthquake, Kahramanmaras earthquake sequence",
     "eq:magnitude": 7.8,
     "eq:magnitude_type": "mww",
@@ -27,6 +27,11 @@
     "eq:status": "reviewed",
     "eq:tsunami": false,
     "eq:sources": [
+      {
+        "name": "emsc",
+        "code": "1218444",
+        "catalog": "EMSC-RTS"
+      },
       {
         "name": "us",
         "code": "us6000jllz",
@@ -55,10 +60,24 @@
       "rel": "self"
     },
     {
+      "title": "EMSC event JSON",
+      "href": "https://www.seismicportal.eu/fdsnws/event/1/query?eventid=20230206_0000008&format=json",
+      "rel": "source",
+      "type": "application/geo+json",
+      "source": "emsc"
+    },
+    {
+      "title": "EMSC Event Page",
+      "href": "https://www.emsc-csem.org/Earthquake/earthquake.php?id=1218444",
+      "rel": "related",
+      "type": "text/html"
+    },
+    {
       "title": "USGS detailed JSON",
       "href": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000jllz&format=geojson",
       "rel": "source",
-      "type": "application/geo+json"
+      "type": "application/geo+json",
+      "source": "us"
     },
     {
       "title": "USGS Event Page",
