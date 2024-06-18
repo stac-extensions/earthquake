@@ -1,67 +1,80 @@
 {
   "stac_version": "1.0.0",
   "stac_extensions": [
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/earthquake/v1.0.0/schema.json"
   ],
   "type": "Feature",
   "id": "item",
-  "bbox": [
-    172.9,
-    1.3,
-    173,
-    1.4
-  ],
   "geometry": {
-    "type": "Polygon",
+    "type": "Point",
     "coordinates": [
-      [
-        [
-          172.9,
-          1.3
-        ],
-        [
-          173,
-          1.3
-        ],
-        [
-          173,
-          1.4
-        ],
-        [
-          172.9,
-          1.4
-        ],
-        [
-          172.9,
-          1.3
-        ]
-      ]
+      37.0143,
+      37.2256,
+      10
     ]
   },
   "properties": {
-    "datetime": "2020-12-11T22:38:32Z",
-    "template:new_field": "test",
-    "template:xyz": {
-      "x": 1,
-      "y": 2,
-      "z": 3
-    },
-    "template:another_one": [
-      1,
-      2,
-      3
+    "datetime": "2023-02-06T01:17:34 Z",
+    "title": "M 7.8 - Pazarcik earthquake, Kahramanmaras earthquake sequence",
+    "eq:magnitude": 7.8,
+    "eq:magnitude_type": "mww",
+    "eq:depth": 10,
+    "eq:places": [
+      "Pazarcik",
+      "Kahramanmaras"
+    ],
+    "eq:felt": 2047,
+    "eq:status": "reviewed",
+    "eq:tsunami": false,
+    "eq:sources": [
+      {
+        "name": "us",
+        "code": "us6000jllz",
+        "catalog": "USGS-NEIC"
+      },
+      {
+        "name": "usauto",
+        "code": "usauto6000jllz",
+        "catalog": "USGS-NEIC"
+      },
+      {
+        "name": "at",
+        "code": "at00rpmwxe",
+        "catalog": "USGS-NEIC"
+      },
+      {
+        "name": "pt",
+        "code": "pt22037000",
+        "catalog": "USGS-NEIC"
+      }
     ]
   },
   "links": [
     {
       "href": "https://example.com/examples/item.json",
       "rel": "self"
+    },
+    {
+      "title": "USGS detailed JSON",
+      "href": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=us6000jllz&format=geojson",
+      "rel": "source",
+      "type": "application/geo+json"
+    },
+    {
+      "title": "USGS Event Page",
+      "href": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000jllz/executive",
+      "rel": "related",
+      "type": "text/html"
     }
   ],
   "assets": {
     "data": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
+      "href": "https://earthquake.usgs.gov/product/internal-moment-tensor/us_6000jllz_mww/us/1675646838040/quakeml.xml",
+      "roles": [
+        "data"
+      ],
+      "title": "QuakeML",
+      "type": "application/xml"
     }
   }
 }

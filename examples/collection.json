@@ -2,12 +2,12 @@
   "stac_version": "1.0.0",
   "stac_extensions": [
     "https://stac-extensions.github.io/item-assets/v1.0.0/schema.json",
-    "https://stac-extensions.github.io/template/v1.0.0/schema.json"
+    "https://stac-extensions.github.io/earthquake/v1.0.0/schema.json"
   ],
   "type": "Collection",
-  "id": "collection",
-  "title": "A title",
-  "description": "A description",
+  "id": "significant-earthquakes-2023",
+  "title": "Significant Earthquakes Archive 2023",
+  "description": "A collection of significant earthquakes that occurred in 2023",
   "license": "Apache-2.0",
   "extent": {
     "spatial": {
@@ -23,41 +23,27 @@
     "temporal": {
       "interval": [
         [
-          "2015-06-23T00:00:00Z",
-          null
+          "2023-01-01T00:00:00Z",
+          "2023-12-31T23:59:59Z"
         ]
       ]
-    }
-  },
-  "template:new_field": "test",
-  "template:xyz": {
-    "x": 1,
-    "y": 2,
-    "z": 3
-  },
-  "template:another_one": [
-    1,
-    2,
-    3
-  ],
-  "assets": {
-    "example": {
-      "href": "https://example.com/examples/file.xyz",
-      "template:new_field": "test"
     }
   },
   "item_assets": {
     "data": {
       "roles": [
         "data"
-      ],
-      "template:new_field": "test"
+      ]
     }
   },
   "summaries": {
     "datetime": {
-      "minimum": "2015-06-23T00:00:00Z",
-      "maximum": "2019-07-10T13:44:56Z"
+      "minimum": "2023-01-01T00:00:00Z",
+      "maximum": "2023-12-31T23:59:59Z"
+    },
+    "eq:magnitude": {
+      "minimum": 5.0,
+      "maximum": 9.2
     }
   },
   "links": [
