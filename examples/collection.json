@@ -31,6 +31,8 @@
   },
   "item_assets": {
     "data": {
+      "title": "Earthquake information in QuakeML",
+      "type": "application/xml",
       "roles": [
         "data"
       ]
@@ -42,7 +44,7 @@
       "maximum": "2023-12-31T23:59:59Z"
     },
     "eq:magnitude": {
-      "minimum": 5.0,
+      "minimum": 5,
       "maximum": 9.2
     }
   },

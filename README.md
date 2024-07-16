@@ -30,16 +30,16 @@ The fields in the table below can be used in these parts of STAC documents:
 - [ ] Assets (for both Collections and Items, incl. Item Asset Definitions in Collections)
 - [ ] Links
 
-| Field Name        | Type                          | Description                                                                                                                    |
-| ----------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| eq:magnitude      | \[number]                     | **REQUIRED**. The magnitude for the event. See also magnitude_type.                                                            |
-| eq:magnitude_type | string                        | The type of magnitude. Default to `mww`.                                                                                       |
-| eq:places         | \[string]                     | The list of places referencing locations in relation with the event                                                            |
-| eq:felt           | number                        | The number of felt reports.                                                                                                    |
-| eq:status         | string                        | Indicates whether the event has been reviewed by a human. Possible value: `automatic`, `reviewed`, `deleted`                   |
-| eq:tsunami        | boolean                       | This flag is set to `true` for large events in oceanic regions and `false` otherwise.                                          |
-| eq:sources        | \[[source object](#eqsource)] | **REQUIRED**. A unique identifier for the event. This is the current preferred id for the event, and may change over time, the |
-| eq:depth          | number                        | The depth of the event in kilometers.                                                                                          |
+| Field Name        | Type                           | Description                                                                                                                    |
+| ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| eq:magnitude      | \[number]                      | **REQUIRED**. The magnitude for the event. See also magnitude_type.                                                            |
+| eq:magnitude_type | string                         | The type of magnitude. Default to `mww`.                                                                                       |
+| eq:places         | \[string]                      | The list of places referencing locations in relation with the event                                                            |
+| eq:felt           | number                         | The number of felt reports.                                                                                                    |
+| eq:status         | string                         | Indicates whether the event has been reviewed by a human. Possible value: `automatic`, `reviewed`, `deleted`                   |
+| eq:tsunami        | boolean                        | This flag is set to `true` for large events in oceanic regions and `false` otherwise.                                          |
+| eq:sources        | \[[source object](#eqsources)] | **REQUIRED**. A unique identifier for the event. This is the current preferred id for the event, and may change over time, the |
+| eq:depth          | number                         | The depth of the event in kilometers.                                                                                          |
 
 ### Additional Field Information
 
@@ -85,7 +85,8 @@ The following table list the catalogs that are currently identified:
 
 ### USGS Earthquake GeoJSON Summary Feed
 
-The following table gives the mapping between the fields in the [USGS Earthquake GeoJSON Summary Feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) and the STAC model.
+The following table gives the mapping between the fields in the 
+[USGS Earthquake GeoJSON Summary Feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) and the STAC model.
 
 | ComCat Field Name                                                    | STAC Field Name      | Description                                                                                                                              |
 | -------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -107,7 +108,8 @@ The following table gives the mapping between the fields in the [USGS Earthquake
 
 ### EMSC Earthquake Catalog
 
-The following table gives the mapping between the fields in the [EMSC FDSN-EVENT web service](https://www.emsc-csem.org/Files/epos/specifications/Specs_fdsnevent-WS.pdf) and the STAC model.
+The following table gives the mapping between the fields in the 
+[EMSC FDSN-EVENT web service](https://www.emsc-csem.org/Files/epos/specifications/Specs_fdsnevent-WS.pdf) and the STAC model.
 
 | EMSC Field Name | STAC Field Name | Description |
 | --------------- | --------------- | ----------- |
