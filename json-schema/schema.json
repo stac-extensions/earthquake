@@ -108,13 +108,6 @@
             "mh"
           ]
         },
-        "eq:places": {
-          "title": "Places",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "eq:felt": {
           "title": "Number of felt reports",
           "type": "integer"

@@ -34,7 +34,6 @@ The fields in the table below can be used in these parts of STAC documents:
 | ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | eq:magnitude      | \[number]                      | **REQUIRED**. The magnitude for the event. See also magnitude_type.                                                            |
 | eq:magnitude_type | string                         | The type of magnitude. Default to `mww`.                                                                                       |
-| eq:places         | \[string]                      | The list of places referencing locations in relation with the event                                                            |
 | eq:felt           | number                         | The number of felt reports.                                                                                                    |
 | eq:status         | string                         | Indicates whether the event has been reviewed by a human. Possible value: `automatic`, `reviewed`, `deleted`                   |
 | eq:tsunami        | boolean                        | This flag is set to `true` for large events in oceanic regions and `false` otherwise.                                          |
@@ -47,13 +46,6 @@ The fields in the table below can be used in these parts of STAC documents:
 
 The `eq:magnitude_type` field is a string that describes the type of magnitude. The default value is `mww` (moment magnitude).
 The complete list of possible values is available [here](https://www.usgs.gov/programs/earthquake-hazards/magnitude-types).
-
-#### eq:places
-
-The `eq:places` field is a list of strings that reference locations in relation with the event.
-It is recommended to use [GeoNames](http://www.geonames.org/) dataset to reference populated places that are in close proximity to a seismic event.
-If there is no nearby city within 300 kilometers (or if the nearby cities database is unavailable for some reason),
-the [Flinn-Engdahl (F-E)](https://www.isc.ac.uk/standards/FEregions/) seismic and geographical regionalization scheme is used.
 
 #### eq:sources
 
@@ -81,6 +73,14 @@ The following table list the catalogs that are currently identified:
 | `EMSC`       | [European-Mediterranean Seismological Centre](https://www.emsc-csem.org/)           |
 | `FDSN`       | [International Federation of Digital Seismograph Networks](https://www.fdsn.org/)   |
 
+#### keywords
+
+The [`keywords`](https://github.com/radiantearth/stac-spec/blob/master/commons/common-metadata.md#basics) field should be used to store
+the list of strings that reference locations in relation with the event.
+It is recommended to use [GeoNames](http://www.geonames.org/) dataset to reference populated places that are in close proximity to a seismic event.
+If there is no nearby city within 300 kilometers (or if the nearby cities database is unavailable for some reason),
+the [Flinn-Engdahl (F-E)](https://www.isc.ac.uk/standards/FEregions/) seismic and geographical regionalization scheme is used.
+
 ## Mappings with existing catalogs
 
 ### USGS Earthquake GeoJSON Summary Feed
@@ -95,7 +95,7 @@ The following table gives the mapping between the fields in the
 | [magType](https://earthquake.usgs.gov/data/comcat/index.php#magType) | `eq:magnitude_type`  | The type of magnitude.                                                                                                                   |
 | [time](https://earthquake.usgs.gov/data/comcat/index.php#time)       | `datetime`           | The time of the event converted from milliseconds since the epoch to ISO8601                                                             |
 | [updated](https://earthquake.usgs.gov/data/comcat/index.php#updated) | `updated`            | The time when the event was last converted transformed to ISO8601                                                                        |
-| [place](https://earthquake.usgs.gov/data/comcat/index.php#place)     | `eq:places`          | The list of places referencing locations in relation with the event                                                                      |
+| [place](https://earthquake.usgs.gov/data/comcat/index.php#place)     | `keywords`           | The list of places referencing locations in relation with the event                                                                      |
 | [url](https://earthquake.usgs.gov/data/comcat/index.php#url)         | `links`              | The URL to the event page on the USGS website. The link must have the relationship `related` and the mime-type `text/html`               |
 | [detail](https://earthquake.usgs.gov/data/comcat/index.php#detail)   | `links`              | The URL to the event detail page on the USGS website. The link must have the relationship `related` and the mime-type `application/json` |
 | [felt](https://earthquake.usgs.gov/data/comcat/index.php#felt)       | `eq:felt`            | The number of felt reports.                                                                                                              |
