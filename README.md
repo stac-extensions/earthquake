@@ -88,31 +88,43 @@ the [Flinn-Engdahl (F-E)](https://www.isc.ac.uk/standards/FEregions/) seismic an
 The following table gives the mapping between the fields in the 
 [USGS Earthquake GeoJSON Summary Feed](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) and the STAC model.
 
-| ComCat Field Name                                                    | STAC Field Name      | Description                                                                                                                              |
-| -------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| [title](https://earthquake.usgs.gov/data/comcat/index.php#title)     | `title`              | A brief description of the event.                                                                                                        |
-| [mag](https://earthquake.usgs.gov/data/comcat/index.php#mag)         | `eq:magnitude`       | The magnitude for the event.                                                                                                             |
-| [magType](https://earthquake.usgs.gov/data/comcat/index.php#magType) | `eq:magnitude_type`  | The type of magnitude.                                                                                                                   |
-| [time](https://earthquake.usgs.gov/data/comcat/index.php#time)       | `datetime`           | The time of the event converted from milliseconds since the epoch to ISO8601                                                             |
-| [updated](https://earthquake.usgs.gov/data/comcat/index.php#updated) | `updated`            | The time when the event was last converted transformed to ISO8601                                                                        |
-| [place](https://earthquake.usgs.gov/data/comcat/index.php#place)     | `keywords`           | The list of places referencing locations in relation with the event                                                                      |
-| [url](https://earthquake.usgs.gov/data/comcat/index.php#url)         | `links`              | The URL to the event page on the USGS website. The link must have the relationship `related` and the mime-type `text/html`               |
-| [detail](https://earthquake.usgs.gov/data/comcat/index.php#detail)   | `links`              | The URL to the event detail page on the USGS website. The link must have the relationship `related` and the mime-type `application/json` |
-| [felt](https://earthquake.usgs.gov/data/comcat/index.php#felt)       | `eq:felt`            | The number of felt reports.                                                                                                              |
-| [status](https://earthquake.usgs.gov/data/comcat/index.php#status)   | `eq:status`          | Indicates whether the event has been reviewed by a human.                                                                                |
-| [tsunami](https://earthquake.usgs.gov/data/comcat/index.php#tsunami) | `eq:tsunami`         | This flag is set to `true` for large events in oceanic regions and `false` otherwise.                                                    |
-| [net](https://earthquake.usgs.gov/data/comcat/index.php#net)         | `eq:sources[0].name` | The network code of the preferred source of information for the event.                                                                   |
-| [code](https://earthquake.usgs.gov/data/comcat/index.php#code)       | `eq:sources[0].code` | The event code of the preferred source of information for the event.                                                                     |
-| [sources](https://earthquake.usgs.gov/data/comcat/index.php#sources) | `eq:sources[*].name` | The network code of the other sources of information for the event.                                                                      |
-| [ids](https://earthquake.usgs.gov/data/comcat/index.php#ids)         | `eq:sources[*].code` | The event code of the other sources of information for the event.                                                                        |
+| ComCat Field Name                                                                                                                                   | STAC Field Name      | Description                                                                                                                              |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| [latitude](https://earthquake.usgs.gov/data/comcat/index.php#latitude) and [longitude](https://earthquake.usgs.gov/data/comcat/index.php#longitude) | `geometry`           | The coordinates of the event.                                                                                                            |
+| [title](https://earthquake.usgs.gov/data/comcat/index.php#title)                                                                                    | `title`              | A brief description of the event.                                                                                                        |
+| [mag](https://earthquake.usgs.gov/data/comcat/index.php#mag)                                                                                        | `eq:magnitude`       | The magnitude for the event.                                                                                                             |
+| [magType](https://earthquake.usgs.gov/data/comcat/index.php#magType)                                                                                | `eq:magnitude_type`  | The type of magnitude.                                                                                                                   |
+| [time](https://earthquake.usgs.gov/data/comcat/index.php#time)                                                                                      | `datetime`           | The time of the event converted from milliseconds since the epoch to ISO8601                                                             |
+| [updated](https://earthquake.usgs.gov/data/comcat/index.php#updated)                                                                                | `updated`            | The time when the event was last converted transformed to ISO8601                                                                        |
+| [place](https://earthquake.usgs.gov/data/comcat/index.php#place)                                                                                    | `keywords`           | The list of places referencing locations in relation with the event                                                                      |
+| [url](https://earthquake.usgs.gov/data/comcat/index.php#url)                                                                                        | `links`              | The URL to the event page on the USGS website. The link must have the relationship `related` and the mime-type `text/html`               |
+| [detail](https://earthquake.usgs.gov/data/comcat/index.php#detail)                                                                                  | `links`              | The URL to the event detail page on the USGS website. The link must have the relationship `related` and the mime-type `application/json` |
+| [felt](https://earthquake.usgs.gov/data/comcat/index.php#felt)                                                                                      | `eq:felt`            | The number of felt reports.                                                                                                              |
+| [status](https://earthquake.usgs.gov/data/comcat/index.php#status)                                                                                  | `eq:status`          | Indicates whether the event has been reviewed by a human.                                                                                |
+| [tsunami](https://earthquake.usgs.gov/data/comcat/index.php#tsunami)                                                                                | `eq:tsunami`         | This flag is set to `true` for large events in oceanic regions and `false` otherwise.                                                    |
+| [net](https://earthquake.usgs.gov/data/comcat/index.php#net)                                                                                        | `eq:sources[0].name` | The network code of the preferred source of information for the event.                                                                   |
+| [code](https://earthquake.usgs.gov/data/comcat/index.php#code)                                                                                      | `eq:sources[0].code` | The event code of the preferred source of information for the event.                                                                     |
+| [sources](https://earthquake.usgs.gov/data/comcat/index.php#sources)                                                                                | `eq:sources[*].name` | The network code of the other sources of information for the event.                                                                      |
+| [ids](https://earthquake.usgs.gov/data/comcat/index.php#ids)                                                                                        | `eq:sources[*].code` | The event code of the other sources of information for the event.                                                                        |
 
 ### EMSC Earthquake Catalog
 
 The following table gives the mapping between the fields in the 
 [EMSC FDSN-EVENT web service](https://www.emsc-csem.org/Files/epos/specifications/Specs_fdsnevent-WS.pdf) and the STAC model.
 
-| EMSC Field Name | STAC Field Name | Description |
-| --------------- | --------------- | ----------- |
+| EMSC Field Name | STAC Field Name         | Description                               |
+| --------------- | ----------------------- | ----------------------------------------- |
+| Lat, Lon        | `geometry`              | Coordinates of the epicenter              |
+| Mag             | `eq:magnitude`          | Magnitude of this event                   |
+| MagType         | `eq:magnitude_type`     | Magnitude type of this event              |
+| Time            | `datetime`              | Origin time of the earthquake             |
+| Depth           | `eq:depth`              | Depth of the epicenter                    |
+| source_id       | `eq:sources[*].code`    | EMSC event identifier                     |
+| source_catalog  | `eq:sources[*].catalog` | Catalog identifier (e.g. "EMSC-RTS")      |
+| Auth            | `eq:sources[*].name`    | Author of this event                      |
+| flynn_region    | `keywords`              | Region name from the Flynn-Engdahl naming |
+| lastupdate      | `updated`               | Date time of the time of publication      |
+| etype           | `title`                 | ISF event type                            |
 
 ## Relation types
 

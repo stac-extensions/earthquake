@@ -1,0 +1,74 @@
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/earthquake/v1.0.0/schema.json"
+  ],
+  "type": "Feature",
+  "id": "us6000pi9w",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      87.3608,
+      28.639,
+      10
+    ]
+  },
+  "bbox": [
+    87.3608,
+    28.639,
+    10,
+    87.3608,
+    28.639,
+    10
+  ],
+  "properties": {
+    "datetime": "2025-01-07T01:05:16.824Z",
+    "title": "2025 Southern Tibetan Plateau Earthquake",
+    "eq:magnitude": 7.1,
+    "eq:magnitude_type": "mww",
+    "eq:depth": 10,
+    "keywords": [
+      "Tibet",
+      "Nepal"
+    ],
+    "eq:felt": 858,
+    "eq:status": "reviewed",
+    "eq:tsunami": false,
+    "eq:sources": [
+      {
+        "name": "us",
+        "code": "6000pi9w",
+        "catalog": "USGS-NEIC"
+      }
+    ]
+  },
+  "links": [
+    {
+      "href": "https://example.com/examples/sources/usgs/us6000pi9w_item.json",
+      "rel": "self"
+    },
+    {
+      "title": "USGS detailed JSON",
+      "href": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us6000pi9w.geojson",
+      "rel": "source",
+      "type": "application/geo+json",
+      "source": "us"
+    },
+    {
+      "title": "USGS Event Page",
+      "href": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000pi9w",
+      "rel": "related",
+      "type": "text/html"
+    }
+  ],
+  "assets": {
+    "data": {
+      "href": "https://earthquake.usgs.gov/realtime/product/moment-tensor/us_6000pi9w_mww/us/1736213031040/quakeml.xml",
+      "roles": [
+        "data"
+      ],
+      "title": "QuakeML",
+      "type": "application/xml"
+    }
+  }
+}
