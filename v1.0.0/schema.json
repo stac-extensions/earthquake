@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://stac-extensions.github.io/earthquake/v1.0.0/schema.json#",
+  "title": "Earthquake Extension",
+  "description": "STAC Earthquake Extension for STAC Items.",
+  "oneOf": [
+    {
+      "$comment": "This is the schema for STAC Items.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "properties",
+            "assets"
+          ],
+          "properties": {
+            "type": {
+              "const": "Feature"
+            },
+            "properties": {
+              "$ref": "#/definitions/fields"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        }
+      ]
+    },
+    {
+      "$comment": "This is the schema for STAC Collections.",
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "const": "Collection"
+            },
+            "assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            },
+            "item_assets": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/fields"
+              }
+            }
+          }
+        },
+        {
+          "$ref": "#/definitions/stac_extensions"
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "stac_extensions": {
+      "type": "object",
+      "required": [
+        "stac_extensions"
+      ],
+      "properties": {
+        "stac_extensions": {
+          "type": "array",
+          "contains": {
+            "const": "https://stac-extensions.github.io/earthquake/v1.0.0/schema.json"
+          }
+        }
+      }
+    },
+    "fields": {
+      "type": "object",
+      "properties": {
+        "eq:magnitude": {
+          "title": "Magnitude",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "eq:magnitude_type": {
+          "title": "Magnitude Type",
+          "type": "string",
+          "enum": [
+            "mww",
+            "mwc",
+            "mwb",
+            "ms",
+            "mb",
+            "mfa",
+            "ml",
+            "mlg",
+            "md",
+            "mwp",
+            "me",
+            "mh"
+          ]
+        },
+        "eq:felt": {
+          "title": "Number of felt reports",
+          "type": "integer"
+        },
+        "eq:status": {
+          "title": "Status",
+          "type": "string",
+          "enum": [
+            "automatic",
+            "reviewed",
+            "deleted"
+          ]
+        },
+        "eq:tsunami": {
+          "title": "Tsunami",
+          "type": "boolean"
+        },
+        "eq:sources": {
+          "$ref": "#/definitions/sources"
+        },
+        "eq:depth": {
+          "title": "Depth",
+          "type": "number"
+        }
+      },
+      "patternProperties": {
+        "^(?!eq:)": {}
+      },
+      "additionalProperties": false
+    },
+    "sources": {
+      "title": "Sources",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "title": "Source",
+        "type": "object",
+        "minProperties": 2,
+        "required": [
+          "name",
+          "code"
+        ],
+        "properties": {
+          "name": {
+            "title": "Name of the source",
+            "type": "string"
+          },
+          "code": {
+            "title": "Code of the source",
+            "type": "string"
+          },
+          "catalog": {
+            "title": "Id of the catalog",
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}
