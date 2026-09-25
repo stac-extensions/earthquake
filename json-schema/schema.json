@@ -94,6 +94,7 @@
           "title": "Magnitude Type",
           "type": "string",
           "enum": [
+            "mw",
             "mww",
             "mwc",
             "mwb",

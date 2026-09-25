@@ -1,0 +1,56 @@
+{
+  "stac_version": "1.0.0",
+  "stac_extensions": [
+    "https://stac-extensions.github.io/earthquake/v1.0.0/schema.json"
+  ],
+  "type": "Feature",
+  "id": "official20041226005853450_30",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      95.982,
+      3.295
+    ]
+  },
+  "bbox": [
+    95.982,
+    3.295,
+    95.982,
+    3.295
+  ],
+  "properties": {
+    "datetime": "2004-12-26T00:58:53.450Z",
+    "title": "M 9.1 - 2004 Sumatra - Andaman Islands Earthquake",
+    "eq:magnitude": 9.1,
+    "eq:magnitude_type": "mw",
+    "eq:depth": 30,
+    "eq:status": "reviewed",
+    "eq:sources": [
+      {
+        "name": "official",
+        "code": "20041226005853450_30",
+        "catalog": "USGS"
+      }
+    ]
+  },
+  "links": [
+    {
+      "href": "https://example.com/examples/official20041226005853450_30.json",
+      "rel": "self"
+    },
+    {
+      "title": "USGS detailed JSON",
+      "href": "https://earthquake.usgs.gov/fdsnws/event/1/query?eventid=official20041226005853450_30&format=geojson",
+      "rel": "source",
+      "type": "application/geo+json",
+      "source": "official"
+    },
+    {
+      "title": "USGS Event Page",
+      "href": "https://earthquake.usgs.gov/earthquakes/eventpage/official20041226005853450_30",
+      "rel": "related",
+      "type": "text/html"
+    }
+  ],
+  "assets": {}
+}
