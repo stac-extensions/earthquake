@@ -16,6 +16,7 @@ A specific [section](#mappings-with-existing-catalogs) gives the translation bet
 
 - Examples:
   - [Item example](examples/item.json): Shows the basic usage of the extension in a STAC Item
+  - [Generic moment magnitude example](examples/official20041226005853450_30.json): Preserves the USGS `mw` magnitude type
   - [Collection example](examples/collection.json): Shows the basic usage of the extension in a STAC Collection
 - [JSON Schema](json-schema/schema.json)
 - [Changelog](./CHANGELOG.md)
@@ -45,6 +46,8 @@ The fields in the table below can be used in these parts of STAC documents:
 #### eq:magnitude_type
 
 The `eq:magnitude_type` field is a string that describes the type of magnitude. The default value is `mww` (moment magnitude).
+`mw` denotes generic moment magnitude and preserves the source designation without specifying a measurement method.
+When a source reports `mw`, retain it rather than substituting a method-specific type such as `mww`, `mwc`, or `mwb`.
 The complete list of possible values is available [here](https://www.usgs.gov/programs/earthquake-hazards/magnitude-types).
 
 #### eq:sources
