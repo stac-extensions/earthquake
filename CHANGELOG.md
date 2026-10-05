@@ -8,7 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Updated Magnitude Type definition with 41 USGS types as described in the official [API metadata](https://earthquake.usgs.gov/fdsnws/event/1/application.json).
+
 ### Changed
+
+- Magnitude now allows [negative values](https://www.usgs.gov/faqs/how-can-earthquake-have-a-negative-magnitude).
 
 ### Deprecated
 
