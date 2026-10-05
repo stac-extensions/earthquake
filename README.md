@@ -48,7 +48,56 @@ The fields in the table below can be used in these parts of STAC documents:
 The `eq:magnitude_type` field is a string that describes the type of magnitude. The default value is `mww` (moment magnitude).
 `mw` denotes generic moment magnitude and preserves the source designation without specifying a measurement method.
 When a source reports `mw`, retain it rather than substituting a method-specific type such as `mww`, `mwc`, or `mwb`.
-The complete list of possible values is available [here](https://www.usgs.gov/programs/earthquake-hazards/magnitude-types).
+The following summary is based on the official [USGS magnitude types documentation](https://www.usgs.gov/programs/earthquake-hazards/magnitude-types).
+The minimum and maximum columns describe approximate working magnitude ranges, not validation bounds for `eq:magnitude`.
+“Not specified” means USGS gives no numeric endpoint; it does not imply a physical limit.
+
+| Type / common codes | Name or method | Typical minimum | Typical maximum | Interpretation / qualification |
+|---|---|---:|---:|---|
+| **ML / Ml / ml** | Local—Richter | ≈2.0 | ≈6.5 | USGS working range; smaller events are measurable. |
+| **MLv** | Vertical-component local magnitude | Variable | Variable | Local calibration and implementation determine applicability. |
+| **MLh** | Horizontal-component local magnitude | Variable | Variable | SeisComP implementation follows Swiss standards. |
+| **MLc** | Custom local magnitude | Variable | Variable | Configurable local-event calibration. |
+| **mb** | Short-period body-wave magnitude | ≈4.0 | ≈6.5 | Saturates around the upper end. |
+| **mB** | Longer-period / broadband body-wave magnitude | Variable | Variable | Distinct from `mb`; depends on the particular formulation. |
+| **mB_BB** | Broadband body-wave magnitude | Variable | Variable | SeisComP uses `mB` as a synonym. |
+| **Ms / MS** | Surface-wave magnitude, generic family | Variable | Variable | For the common 20-second implementation, see below. |
+| **Ms20 / Ms_20** | 20-second surface-wave magnitude | ≈5.0 | ≈8.5 | Saturation begins around 8.3. |
+| **Ms(BB)** | Broadband surface-wave magnitude | Variable | Variable | Processing and period range determine applicability. |
+| **mb(Lg) / mbLg / mb_Lg / MLg** | Regional Lg-wave magnitude | ≈3.5 | ≈7.0 | USGS working range. |
+| **MN / Mn** | Nuttli regional magnitude | Variable | Variable | Related to the Lg family; regional calibration matters. |
+| **Md / MD / md** | Duration magnitude | Variable | ≈4.0 | Commonly used for small earthquakes. |
+| **Mc / MC** | Coda magnitude | Variable | Variable | Closely related to duration magnitude; calibration-specific. |
+| **Mw** | Moment magnitude, generic scale | Variable | No fixed ceiling | Applicability depends on how seismic moment is estimated. |
+| **Mww** | W-phase moment magnitude | ≈5.0 | No fixed ceiling | USGS operational guidance. |
+| **Mwc** | Centroid moment magnitude | ≈5.5 | No fixed ceiling | Long-period surface-wave inversion. |
+| **Mwb** | Body-wave moment magnitude | ≈5.5 | ≈7.0 | Operational applicability range. |
+| **Mwr** | Regional moment magnitude | ≈4.0 | ≈6.5 | Dense networks may reach ≈3.5. |
+| **Mwp / Mi*** | Integrated P-wave magnitude | ≈5.0 | ≈8.0 | Rapid moment estimate. |
+| **Mwpd** | P-wave duration–amplitude moment magnitude | Variable | No fixed ceiling | Developed for large events; published testing included magnitude 9 earthquakes. |
+| **Mw(mB)** | Moment magnitude converted from `mB` | Variable | Variable | Validity depends on the conversion relationship. |
+| **Mw(Mwp)** | Moment magnitude converted from `Mwp` | Variable | Variable | Validity depends on the conversion relationship. |
+| **Me / ME** | Energy magnitude | ≈3.5 | No fixed ceiling | Based on radiated seismic energy. |
+| **Mj / MJMA / Mjma** | Japan Meteorological Agency magnitude | Variable | Variable | JMA procedure; a universal hard range is inappropriate. |
+| **Mt** | Tsunami magnitude | Variable | Variable | Derived from tsunami amplitudes; method-specific. |
+| **Mfa** | Felt-area magnitude | Variable | Variable | Historical observational estimate. |
+| **Mint** | Intensity-derived magnitude | Variable | Variable | Estimated from reported intensity. |
+| **Mh** | Nonstandard magnitude designation | Variable | Variable | Meaning requires the reporting agency’s documentation. |
+| **M** | Generic or summary magnitude | Variable | Variable | May mean unspecified magnitude or a software-computed summary. |
+
+Earthquake magnitudes [can be negative](https://www.usgs.gov/faqs/how-can-earthquake-have-a-negative-magnitude).
+Zero is a reference level on a logarithmic scale, not a minimum.
+For local magnitude (ML), under comparable measurement conditions:
+
+| Signal amplitude relative to magnitude 0 | Magnitude |
+|---|---|
+| 10 times larger | 1 |
+| Same amplitude | 0 |
+| 10 times smaller | −1 |
+| 100 times smaller | −2 |
+
+Negative magnitudes describe very small earthquakes, generally detectable only by instruments and not felt by people.
+USGS explicitly confirms that negative magnitudes are valid.
 
 #### eq:sources
 
