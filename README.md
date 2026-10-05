@@ -85,17 +85,19 @@ The minimum and maximum columns describe approximate working magnitude ranges, n
 | **Mh** | Nonstandard magnitude designation | Variable | Variable | Meaning requires the reporting agency’s documentation. |
 | **M** | Generic or summary magnitude | Variable | Variable | May mean unspecified magnitude or a software-computed summary. |
 
-Earthquake magnitudes [can be negative](https://www.usgs.gov/faqs/how-can-earthquake-have-a-negative-magnitude). Zero is a reference level on a logarithmic scale, not a minimum.
+Earthquake magnitudes [can be negative](https://www.usgs.gov/faqs/how-can-earthquake-have-a-negative-magnitude).
+Zero is a reference level on a logarithmic scale, not a minimum.
 For local magnitude (ML), under comparable measurement conditions:
 
 | Signal amplitude relative to magnitude 0 | Magnitude |
 |---|---|
-| 10 times larger| 1 |
+| 10 times larger | 1 |
 | Same amplitude | 0 |
 | 10 times smaller | −1 |
 | 100 times smaller | −2 |
 
-Negative magnitudes describe very small earthquakes, generally detectable only by instruments and not felt by people. USGS explicitly confirms that negative magnitudes are valid.
+Negative magnitudes describe very small earthquakes, generally detectable only by instruments and not felt by people.
+USGS explicitly confirms that negative magnitudes are valid.
 
 #### eq:sources
 
